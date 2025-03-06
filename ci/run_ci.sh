@@ -12,6 +12,6 @@ find $path -name "*.py" -print0 | xargs -0 pylint --rcfile=ci/.pylintrc --disabl
 
 echo ===== PYLINT COMPLETE =====
 
-find $path  \( -name '*.ino' -o -name '*.cpp' -o -name '*.h' -o -name '*.hpp'  \) -exec clang-format -i {} \;
+find $path  \( -name '*.ino' -o -name '*.cpp' -o -name '*.h' -o -name '*.hpp'  \) -exec clang-format -i --style=file:ci/.clang-format {} \;
 
 echo ===== CLANG-FORMAT COMPLETE =====
