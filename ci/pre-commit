@@ -41,7 +41,7 @@ fi
 if [ ! -z "$c_files" ]; then
 
     echo "Running clang-format on staged files..."
-    clang-format -i $c_files
+    clang-format -i --style=file:ci/.clang-format $c_files
 
     changes=$(git diff --name-only $c_files)
 
