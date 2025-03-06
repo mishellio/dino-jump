@@ -101,6 +101,19 @@ uint64_t col_to_bin(const int img[][COLUMN], int col_num) {
   return bin;
 }
 
+void get_half_period(){
+  if (digitalRead(IR_PIN) == HIGH) {
+    detected = false;
+  }
+  else if (!detected) {
+    detected = true;
+    int end_time = micros() - start_time;
+    start_time = micros();
+    Serial.print("p: ");
+    Serial.println(end_time);
+  }
+}
+
 // lights up all leds
 void sanity_check_leds() {
   board1.setPattern(0xFFFF, 255);
